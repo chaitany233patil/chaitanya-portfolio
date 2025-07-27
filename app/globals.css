@@ -1,2 +1,27 @@
 @import "tailwindcss";
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.scroll {
+  animation: scroll 8s linear infinite;
+}
+
+.scroll-reverse {
+  animation: scroll-reverse 8s linear infinite;
+}
