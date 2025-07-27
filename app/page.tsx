@@ -1,6 +1,7 @@
 import { Card } from "@/components/Card";
 import { GithubHeatMap } from "@/components/GithubHeatMap";
 import ScrollingRow from "@/components/ScrollingRow";
+import { SocialCard } from "@/components/SocialCard";
 import Image from "next/image";
 
 export default function Home() {
@@ -38,9 +39,49 @@ export default function Home() {
     { title: "PRs", count: "16" },
   ];
 
+  const socials = [
+    {
+      title: "Insta",
+      logo: "/icons/instagram.svg",
+      alt: "Instagram",
+      href: "#",
+      rotate: "rotate-35",
+      margin: "mt-[-30px]",
+    },
+    {
+      title: "Twitter",
+      logo: "/icons/x.svg",
+      alt: "Twitter",
+      href: "#",
+      rotate: "rotate-25",
+    },
+    {
+      title: "Linkedin",
+      logo: "/icons/linkedin.svg",
+      alt: "Linkedin",
+      href: "#",
+      rotate: "rotate-0",
+    },
+    {
+      title: "Discord",
+      logo: "/icons/discord.svg",
+      alt: "Discord",
+      href: "#",
+      rotate: "-rotate-25",
+    },
+    {
+      title: "Spotify",
+      logo: "/icons/spotify.svg",
+      alt: "Spotify",
+      href: "#",
+      rotate: "-rotate-45",
+      margin: "mt-[-30px]",
+    },
+  ];
+
   return (
     <section>
-      <div className="max-w-2xl mx-auto pt-20 px-6">
+      <div className="relative max-w-2xl mx-auto pt-20 px-6">
         <div className="flex justify-between items-center py-4">
           <div>
             <div className="text-3xl font-semibold mb-1">Chaitanya Patil</div>
@@ -72,7 +113,8 @@ export default function Home() {
             <span className="underline decoration-wavy cursor-pointer">
               crafts
             </span>{" "}
-            here. Currently, I&apos;m diving deeper into Web3 and system design.
+            here. Currently, I&apos;m diving deeper into Web3 and Improving my
+            UI/UX skils.
           </div>
           <div className="pt-6 flex items-center ">
             A snapshot of my work experience.
@@ -167,13 +209,75 @@ export default function Home() {
             </Card>
 
             {/* Social */}
-            <Card className="col-span-3 rowspan-2">
-              <div>
+            <Card className="col-span-3 rowspan-2 group">
+              <div className="flex flex-col h-full">
                 <div className="text-md text-neutral-400 p-2 font-serif">
                   Social
                 </div>
+                <div
+                  className={`h-full flex items-center justify-center hover:px-4 gap-2 mt-[-8px] transition-all duration-500`}
+                >
+                  {socials.map((social, index) => (
+                    <SocialCard
+                      className={`${
+                        social.rotate + " " + social.margin
+                      } transition-all duration-500 group-hover:rotate-0 group-hover:mt-0 cursor-pointer`}
+                      key={index}
+                      src={social.logo}
+                      alt={social.alt}
+                      title={social.title}
+                    />
+                  ))}
+                </div>
               </div>
             </Card>
+
+            {/* VScode Stat */}
+            <Card className="relative col-span-2 group flex flex-col justify-between">
+              <div className="m-3">
+                <img src={"/icons/code.svg"} width={25} />
+              </div>
+              <div className="h-full flex items-center mt-[-60px] justify-center flex-col gap-2">
+                <div className="">
+                  <span className="text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-neutral-500 via-neutral-500 to-black ">
+                    940
+                  </span>
+                  <span className=" tracking-tight ml-3 text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-950">
+                    hrs
+                  </span>
+                </div>
+                <div className="text-sm text-green-400">
+                  <span className="mr-1">(</span>Wakatime
+                  <span className="ml-1">)</span>
+                </div>
+              </div>
+              <div className="absolute top-4 right-7 transition-all duration-700 blur-sm group-hover:blur-none">
+                <img src={"/icons/vscode.svg"} width={70} />
+              </div>
+              <div className="absolute bottom-4 left-7 transition-all duration-700 blur-sm group-hover:blur-none">
+                <img src={"/icons/terminal.svg"} width={60} />
+              </div>
+            </Card>
+
+            {/* Anime */}
+            <Card className="col-span-1 flex items-center hover:scale-[90%] overflow-hidden">
+              <figure className="relative flex h-full max-w-sm transition-all duration-2000 overflow-hidden">
+                <img
+                  className="rounded-lg hover:scale-[120%] transition-all duration-500"
+                  src="/sonic.jpg"
+                  alt="image description"
+                />
+              </figure>
+            </Card>
+          </div>
+
+          <div className="w-full border border-black/50 mt-15"></div>
+          <div className="pt-1 flex justify-between">
+            <div className="text-neutral-600">©Chaitanya Patil.</div>
+            <div className="text-neutral-600 flex gap-1">
+              <img src={"/icons/githublogo.svg"} alt={"github"} width={18} />
+              space#233
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const Navbar = () => {
   const NavItems = [
-    { title: "Work" },
-    { title: "Projects" },
-    { title: "About" },
+    { title: "Work", href: "/work" },
+    { title: "Projects", href: "projects" },
+    { title: "About", href: "About" },
+    { title: "Playground", href: "/Playground" },
   ];
 
   return (
@@ -18,9 +20,11 @@ export const Navbar = () => {
         />
         <div className="flex gap-8">
           {NavItems.map((itme, index) => (
-            <div key={index} className="text-neutral-500 text-lg">
-              {itme.title}
-            </div>
+            <Link key={index} href={itme.href}>
+              <div key={index} className="text-neutral-500 text-lg">
+                {itme.title}
+              </div>
+            </Link>
           ))}
         </div>
       </div>
