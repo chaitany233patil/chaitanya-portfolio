@@ -3,6 +3,7 @@ import { GithubHeatMap } from "@/components/GithubHeatMap";
 import ScrollingRow from "@/components/ScrollingRow";
 import { SocialCard } from "@/components/SocialCard";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const stack = [
@@ -45,15 +46,14 @@ export default function Home() {
       logo: "/icons/instagram.svg",
       alt: "Instagram",
       href: "#",
-      rotate: "rotate-35",
-      margin: "mt-[-30px]",
+      rotate: "-rotate-25",
     },
     {
       title: "Twitter",
       logo: "/icons/x.svg",
       alt: "Twitter",
       href: "#",
-      rotate: "rotate-25",
+      rotate: "-rotate-15",
     },
     {
       title: "Linkedin",
@@ -67,15 +67,14 @@ export default function Home() {
       logo: "/icons/discord.svg",
       alt: "Discord",
       href: "#",
-      rotate: "-rotate-25",
+      rotate: "rotate-15",
     },
     {
       title: "Spotify",
       logo: "/icons/spotify.svg",
       alt: "Spotify",
       href: "#",
-      rotate: "-rotate-45",
-      margin: "mt-[-30px]",
+      rotate: "rotate-20",
     },
   ];
 
@@ -118,22 +117,24 @@ export default function Home() {
           </div>
           <div className="pt-6 flex items-center ">
             A snapshot of my work experience.
-            <div className="relative overflow-hidden group">
-              <Image
-                src={"/arrow.svg"}
-                alt="arrow"
-                width={20}
-                height={20}
-                className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4"
-              />
-              <Image
-                src={"/arrow.svg"}
-                alt="arrow"
-                width={20}
-                height={20}
-                className="absolute ml-1 top-0 cursor-pointer transform transition-transform duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:-translate-y-0"
-              />
-            </div>
+            <Link href={"/work"}>
+              <div className="relative overflow-hidden group">
+                <Image
+                  src={"/arrow.svg"}
+                  alt="arrow"
+                  width={20}
+                  height={20}
+                  className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4"
+                />
+                <Image
+                  src={"/arrow.svg"}
+                  alt="arrow"
+                  width={20}
+                  height={20}
+                  className="absolute ml-1 top-0 cursor-pointer transform transition-transform duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:-translate-y-0"
+                />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="pb-10">
@@ -191,7 +192,7 @@ export default function Home() {
               <div className="flex items-center justify-center mb-2">
                 <GithubHeatMap />
               </div>
-              <div className="flex flex-col gap-2 mt-4">
+              <div className="flex flex-col gap-2 mt-4 overflow-hidden">
                 {gitStat.map(({ title, count }, index) => (
                   <div
                     key={index}
@@ -210,18 +211,16 @@ export default function Home() {
 
             {/* Social */}
             <Card className="col-span-3 rowspan-2 group">
-              <div className="flex flex-col h-full">
-                <div className="text-md text-neutral-400 p-2 font-serif">
+              <div className="flex flex-col h-full items-center">
+                <div className="text-md text-neutral-400 p-2 font-serif w-full">
                   Social
                 </div>
                 <div
-                  className={`h-full flex items-center justify-center hover:px-4 gap-2 mt-[-8px] transition-all duration-500`}
+                  className={`h-full w-full flex items-center justify-center hover:px-4 overflow-hidden gap-2 mt-[-8px] transition-all duration-500`}
                 >
                   {socials.map((social, index) => (
                     <SocialCard
-                      className={`${
-                        social.rotate + " " + social.margin
-                      } transition-all duration-500 group-hover:rotate-0 group-hover:mt-0 cursor-pointer`}
+                      className={`${social.rotate} transition-all duration-500 group-hover:rotate-0 group-hover:mt-0 cursor-pointer`}
                       key={index}
                       src={social.logo}
                       alt={social.alt}
@@ -233,7 +232,7 @@ export default function Home() {
             </Card>
 
             {/* VScode Stat */}
-            <Card className="relative col-span-2 group flex flex-col justify-between">
+            <Card className="relative col-span-2 group flex flex-col justify-between overflow-hidden">
               <div className="m-3">
                 <img src={"/icons/code.svg"} width={25} />
               </div>
@@ -269,15 +268,6 @@ export default function Home() {
                 />
               </figure>
             </Card>
-          </div>
-
-          <div className="w-full border border-black/50 mt-15"></div>
-          <div className="pt-1 flex justify-between">
-            <div className="text-neutral-600">©Chaitanya Patil.</div>
-            <div className="text-neutral-600 flex gap-1">
-              <img src={"/icons/githublogo.svg"} alt={"github"} width={18} />
-              space#233
-            </div>
           </div>
         </div>
       </div>

@@ -21,7 +21,10 @@ export const Navbar = () => {
         <div className="flex gap-8">
           {NavItems.map((itme, index) => (
             <Link key={index} href={itme.href}>
-              <div key={index} className="text-neutral-500 text-lg">
+              <div
+                key={index}
+                className="text-neutral-500 hover:text-neutral-900 text-lg transition-all duration-300"
+              >
                 {itme.title}
               </div>
             </Link>
