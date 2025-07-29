@@ -2,6 +2,7 @@ import { Card } from "@/components/Card";
 import { GithubHeatMap } from "@/components/GithubHeatMap";
 import ScrollingRow from "@/components/ScrollingRow";
 import { SocialCard } from "@/components/SocialCard";
+import { Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -47,6 +48,8 @@ export default function Home() {
       alt: "Instagram",
       href: "#",
       rotate: "-rotate-25",
+      postion: "left-20",
+      index: "z-1",
     },
     {
       title: "Twitter",
@@ -54,6 +57,8 @@ export default function Home() {
       alt: "Twitter",
       href: "#",
       rotate: "-rotate-15",
+      postion: "left-30",
+      index: "z-2",
     },
     {
       title: "Linkedin",
@@ -61,6 +66,7 @@ export default function Home() {
       alt: "Linkedin",
       href: "#",
       rotate: "rotate-0",
+      index: "z-3",
     },
     {
       title: "Discord",
@@ -68,6 +74,8 @@ export default function Home() {
       alt: "Discord",
       href: "#",
       rotate: "rotate-15",
+      postion: "right-30",
+      index: "z-2",
     },
     {
       title: "Spotify",
@@ -75,6 +83,8 @@ export default function Home() {
       alt: "Spotify",
       href: "#",
       rotate: "rotate-20",
+      postion: "right-20",
+      index: "z-1",
     },
   ];
 
@@ -166,11 +176,13 @@ export default function Home() {
                 "col-span-4 px-3 h-60 flex flex-col justify-between items-center overflow-hidden"
               }
             >
-              <div className="flex flex-col justify-center h-full gap-8 pb-4">
-                <div className="text-md tracking-tight bg-gradient-to-r from-blue-400 to-purple-900 bg-clip-text text-transparent pt-2 ps-2 font-serif">
-                  Stacks
+              <div className="flex flex-col justify-center h-full w-full gap-8 pb-4">
+                <div className="flex w-full text-md tracking-tight pt-2 ps-2 font-serif">
+                  <span className="font-semibold bg-gradient-to-r from-blue-300 to-purple-900 bg-clip-text text-transparent">
+                    Stacks
+                  </span>
                 </div>
-                <div className="relative flex flex-col items-center justify-center gap-8">
+                <div className="relative flex flex-col items-center justify-center gap-8 overflow-hidden">
                   <ScrollingRow images={stack} />
                   <ScrollingRow images={revStack} reverse />
                   {/* Left Fade */}
@@ -185,7 +197,8 @@ export default function Home() {
             {/* Github */}
             <Card className="col-span-2 row-span-2 group">
               <div>
-                <div className="text-md text-neutral-400 p-2 font-serif">
+                <div className="text-md text-neutral-400 p-2 font-serif flex items-center">
+                  <Github className="h-4" />
                   Github
                 </div>
               </div>
@@ -216,11 +229,11 @@ export default function Home() {
                   Social
                 </div>
                 <div
-                  className={`h-full w-full flex items-center justify-center hover:px-4 overflow-hidden gap-2 mt-[-8px] transition-all duration-500`}
+                  className={`relative h-full w-full flex items-center justify-center hover:px-4 overflow-hidden gap-2 mt-[-8px] transition-all duration-500`}
                 >
                   {socials.map((social, index) => (
                     <SocialCard
-                      className={`${social.rotate} transition-all duration-500 group-hover:rotate-0 group-hover:mt-0 cursor-pointer`}
+                      className={`${social.index} ${social.rotate} absolute ${social.postion} group-hover:static transition-all duration-600 group-hover:rotate-0 group-hover:mt-0 cursor-pointer`}
                       key={index}
                       src={social.logo}
                       alt={social.alt}
