@@ -9,10 +9,14 @@ export default function Work() {
           {/* Heading */}
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold">My Work</div>
-            <a href={"/"}>
+            <a
+              href={
+                "https://drive.google.com/file/d/1fD3ESYS_KbO18UK5ASbRyy7H5vh29tzu/view?usp=sharing"
+              }
+              target="_blank"
+            >
               <div className="relative group">
                 <div className="absolute inset-0 bg-black transition-all duration-300 rounded-lg group-hover:rounded-none"></div>
-
                 <div className="relative z-10 flex items-center text-md font-semibold justify-center border-2 border-dashed px-3 py-1 rounded-lg bg-white transition-all duration-300 group-hover:-translate-x-1 group-active:-translate-x-1 group-hover:-translate-y-1 group-active:-translate-y-1 group-hover:rounded-none group-active:rounded-none">
                   View Resume
                   <Image
