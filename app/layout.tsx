@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Parisienne } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { Footer } from "@/components/Footer/footer";
@@ -9,11 +9,6 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"], // Choose the weights you need
   variable: "--font-poppins", // Optional: for Tailwind integration
   display: "swap",
-});
-
-export const parisienne = Parisienne({
-  weight: "400",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {

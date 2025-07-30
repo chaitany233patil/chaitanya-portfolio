@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { parisienne } from "../layout";
+import { parisienne } from "@/components/Font";
 
 interface IHeroImage {
   src: string;
