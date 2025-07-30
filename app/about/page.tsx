@@ -1,17 +1,26 @@
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { parisienne } from "../layout";
 
 interface IHeroImage {
   src: string;
   title: string;
+  className?: string;
 }
 
 function HeroImage(props: IHeroImage) {
   return (
-    <div className="max-w-35 flex flex-col gap-3 items-center p-3 bg-neutral-100 border border-neutral-300/30 shadow-2xl">
-      <img src={props.src} alt="me" />
-      <div className="text-sm text-neutral-500">{props.title}</div>
+    <div
+      className={`group max-w-35 flex flex-col gap-3 items-center p-3 bg-neutral-100 border border-neutral-300/30 shadow-2xl ${props.className}`}
+    >
+      <img
+        src={props.src}
+        alt="me"
+        className="filter grayscale group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-300"
+      />
+      <div className={`text-lg text-neutral-500 ${parisienne.className}`}>
+        {props.title}
+      </div>
     </div>
   );
 }
@@ -25,9 +34,21 @@ export default function About() {
             <div className="text-2xl font-bold">About me</div>
           </div>
           <div className="flex items-center justify-center gap-8 md:gap-20 mt-10">
-            <HeroImage src={"/chaitanya.jpg"} title={"Chaitanya"} />
-            <HeroImage src={"/chaitanya.jpg"} title={"Chaitanya"} />
-            <HeroImage src={"/chaitanya.jpg"} title={"Chaitanya"} />
+            <HeroImage
+              className={"-rotate-10"}
+              src={"/img1.jpg"}
+              title={"Adventurer"}
+            />
+            <HeroImage
+              className={"rotate-3"}
+              src={"/img2.jpg"}
+              title={"Explorer"}
+            />
+            <HeroImage
+              className={"rotate-10"}
+              src={"/img3.jpg"}
+              title={"Dreamer"}
+            />
           </div>
           <div className="pt-16 px-4 text-neutral-700">
             <div>

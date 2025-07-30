@@ -76,13 +76,13 @@ export function ProjectCard(props: IProject) {
           ))}
         </div>
         <div className="flex gap-2 mt-3">
-          <a href={props.github}>
+          <a href={props.github} target="_blank">
             <Button
               startIcon={<Github className="h-4" />}
               title={"Source Code"}
             />
           </a>
-          <a href={props.liveLInk}>
+          <a href={props.liveLInk} target="_blank">
             <Button
               endIcon={<ArrowRight className="h-3" />}
               title={"Live Demo"}
