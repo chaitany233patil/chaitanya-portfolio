@@ -81,7 +81,7 @@ export default function Projects() {
           </div>
 
           {/* Projects */}
-          <div className="text-3xl text-neutral-800 mt-20 mb-8">
+          <div className="text-2xl text-neutral-800 mt-20 mb-8">
             Top Projects
           </div>
 
