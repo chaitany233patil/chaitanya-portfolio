@@ -1,3 +1,5 @@
+"use client";
+
 import { Card } from "@/components/Card";
 import { GithubHeatMap } from "@/components/GithubHeatMap";
 import ScrollingRow from "@/components/ScrollingRow";
@@ -37,7 +39,7 @@ export default function Home() {
     { title: "Following", count: "12" },
     { title: "Followers", count: "0" },
     { title: "Stars", count: "4" },
-    { title: "Issue", count: "2" },
+    { title: "Issue", count: "0" },
     { title: "PRs", count: "16" },
   ];
 
@@ -134,7 +136,7 @@ export default function Home() {
                   alt="arrow"
                   width={20}
                   height={20}
-                  className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4"
+                  className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-active:translate-x-4 group-hover:-translate-y-4 group-active:-translate-y-4"
                 />
                 <Image
                   src={"/arrow.svg"}
@@ -149,22 +151,22 @@ export default function Home() {
         </div>
         <div className="pb-10">
           <div className="pt-8 underline">Bento</div>
-          <div className="pt-10 grid grid-cols-5 grid-rows-3 gap-2">
+          <div className="pt-10 grid grid-cols-5 grid-rows-5 sm:grid-rows-3 gap-2">
             {/* Playgorund */}
-            <Card className="col-span-1 flex items-center hover:scale-[90%] overflow-hidden">
+            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] active:scale-[90%] overflow-hidden">
               <figure className="relative flex h-full max-w-sm transition-all duration-2000 overflow-hidden">
                 <img
-                  className="rounded-lg hover:scale-[120%] transition-all duration-500"
+                  className="rounded-lg hover:scale-[120%] active:scale-[120%] transition-all duration-500"
                   src="/hero.jpg"
                   alt="image description"
                 />
-                <figcaption className="absolute top-2 right-2 h-8 w-8 hover:rotate-360 transition-all duration-500 flex items-center text-lg text-white bottom-6 border border-neutral-500 rounded-full">
+                <figcaption className="absolute top-2 right-2 h-8 w-8 hover:rotate-360 active:rotate-360 transition-all duration-500 flex items-center text-lg text-white bottom-6 border border-neutral-500 rounded-full">
                   <Image
                     src={"/arrow.svg"}
                     alt="arrow"
                     width={25}
                     height={25}
-                    className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4 filter"
+                    className="ml-1 cursor-pointer transform transition-transform duration-300"
                   />
                 </figcaption>
               </figure>
@@ -173,12 +175,12 @@ export default function Home() {
             {/* Tech Stack */}
             <Card
               className={
-                "col-span-4 px-3 h-60 flex flex-col justify-between items-center overflow-hidden"
+                "col-span-5 sm:col-span-4 px-3 h-60 flex flex-col justify-between items-center overflow-hidden"
               }
             >
               <div className="flex flex-col justify-center h-full w-full gap-8 pb-4">
                 <div className="flex w-full text-md tracking-tight pt-2 ps-2 font-serif">
-                  <span className="font-semibold bg-gradient-to-r from-blue-300 to-purple-900 bg-clip-text text-transparent">
+                  <span className="font-medium bg-gradient-to-r from-blue-300 to-purple-900 bg-clip-text text-transparent">
                     Stacks
                   </span>
                 </div>
@@ -195,45 +197,47 @@ export default function Home() {
             </Card>
 
             {/* Github */}
-            <Card className="col-span-2 row-span-2 group">
-              <div>
-                <div className="text-md text-neutral-400 p-2 font-serif flex items-center">
-                  <Github className="h-4" />
-                  Github
-                </div>
-              </div>
-              <div className="flex items-center justify-center mb-2">
-                <GithubHeatMap />
-              </div>
-              <div className="flex flex-col gap-2 mt-4 overflow-hidden">
-                {gitStat.map(({ title, count }, index) => (
-                  <div
-                    key={index}
-                    className={`flex border border-gray-400/40 py-3 px-3 text-neutral-400 bg-gradient-to-b from-neutral-50 to-yellow-200/10 transition-all duration-600 w-1/2 ${
-                      index % 2 == 0
-                        ? "self-start rounded-r-full group-hover:w-3/5 justify-end"
-                        : "self-end rounded-l-full group-hover:w-3/5 justify-start"
-                    }`}
-                  >
-                    {title}
-                    <span className="ml-2 text-black">{count}</span>
+            <Card className="col-span-3 sm:col-span-2 row-span-2 group">
+              <a href="https://github.com/chaitany233patil" target="_blank">
+                <div>
+                  <div className="text-md text-neutral-400 p-2 font-serif flex items-center">
+                    <Github className="h-4" />
+                    Github
                   </div>
-                ))}
-              </div>
+                </div>
+                <div className="flex items-center justify-center mb-2">
+                  <GithubHeatMap />
+                </div>
+                <div className="flex flex-col gap-2 mt-4 overflow-hidden">
+                  {gitStat.map(({ title, count }, index) => (
+                    <div
+                      key={index}
+                      className={`flex border border-gray-400/40 py-3 px-3 text-neutral-400 bg-gradient-to-b from-neutral-50 to-yellow-200/10 transition-all duration-600 w-1/2 ${
+                        index % 2 == 0
+                          ? "self-start rounded-r-full group-hover:w-3/5 justify-end group-active:w-3/5"
+                          : "self-end rounded-l-full group-hover:w-3/5 justify-start group-active:w-3/5"
+                      }`}
+                    >
+                      {title}
+                      <span className="ml-2 text-black">{count}</span>
+                    </div>
+                  ))}
+                </div>
+              </a>
             </Card>
 
             {/* Social */}
-            <Card className="col-span-3 rowspan-2 group">
+            <Card className="order-2 sm:order-none col-span-5 sm:col-span-3 rowspan-2 group">
               <div className="flex flex-col h-full items-center">
                 <div className="text-md text-neutral-400 p-2 font-serif w-full">
                   Social
                 </div>
                 <div
-                  className={`relative h-full w-full flex items-center justify-center hover:px-4 overflow-hidden gap-2 mt-[-8px] transition-all duration-500`}
+                  className={`relative h-full w-full flex items-center justify-center hover:px-4 group-active:px-4 overflow-hidden gap-2 mt-[-8px] transition-all duration-500`}
                 >
                   {socials.map((social, index) => (
                     <SocialCard
-                      className={`${social.index} ${social.rotate} absolute ${social.postion} group-hover:static transition-all duration-600 group-hover:rotate-0 group-hover:mt-0 cursor-pointer`}
+                      className={`${social.index} ${social.rotate} absolute ${social.postion} group-hover:static group-active:static transition-all duration-600 group-hover:rotate-0 group-active:rotate-0 group-active:mt-0 cursor-pointer`}
                       key={index}
                       src={social.logo}
                       alt={social.alt}
@@ -245,7 +249,7 @@ export default function Home() {
             </Card>
 
             {/* VScode Stat */}
-            <Card className="relative col-span-2 group flex flex-col justify-between overflow-hidden">
+            <Card className="relative order-3 sm:order-none col-span-5 sm:col-span-2 group flex flex-col justify-between overflow-hidden">
               <div className="m-3">
                 <img src={"/icons/code.svg"} width={25} />
               </div>
@@ -263,16 +267,16 @@ export default function Home() {
                   <span className="ml-1">)</span>
                 </div>
               </div>
-              <div className="absolute top-4 right-7 transition-all duration-700 blur-sm group-hover:blur-none">
+              <div className="absolute top-4 right-7 transition-all duration-700 blur-sm group-hover:blur-none group-active:blur-none">
                 <img src={"/icons/vscode.svg"} width={70} />
               </div>
-              <div className="absolute bottom-4 left-7 transition-all duration-700 blur-sm group-hover:blur-none">
+              <div className="absolute bottom-4 left-7 transition-all duration-700 blur-sm group-hover:blur-none group-active:blur-none">
                 <img src={"/icons/terminal.svg"} width={60} />
               </div>
             </Card>
 
             {/* Anime */}
-            <Card className="col-span-1 flex items-center hover:scale-[90%] overflow-hidden">
+            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] overflow-hidden">
               <figure className="relative flex h-full max-w-sm transition-all duration-2000 overflow-hidden">
                 <img
                   className="rounded-lg hover:scale-[120%] transition-all duration-500"

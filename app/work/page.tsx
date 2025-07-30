@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Work() {
   return (
-    <section className="font-">
+    <section className="">
       <div className="flex flex-col pt-20">
-        <div className="max-w-2xl mx-auto w-full">
+        <div className="max-w-2xl mx-auto w-full px-4">
           {/* Heading */}
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold">My Work</div>
@@ -13,7 +13,7 @@ export default function Work() {
               <div className="relative group">
                 <div className="absolute inset-0 bg-black transition-all duration-300 rounded-lg group-hover:rounded-none"></div>
 
-                <div className="relative z-10 flex items-center text-md font-semibold justify-center border-2 border-dashed px-3 py-1 rounded-lg bg-white transition-all duration-300 group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:rounded-none">
+                <div className="relative z-10 flex items-center text-md font-semibold justify-center border-2 border-dashed px-3 py-1 rounded-lg bg-white transition-all duration-300 group-hover:-translate-x-1 group-active:-translate-x-1 group-hover:-translate-y-1 group-active:-translate-y-1 group-hover:rounded-none group-active:rounded-none">
                   View Resume
                   <Image
                     src={"/icons/right-arrow.svg"}
@@ -36,14 +36,14 @@ export default function Work() {
                   alt="arrow"
                   width={20}
                   height={20}
-                  className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4"
+                  className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-active:translate-x-4 group-hover:-translate-y-4 group-active:-translate-y-4"
                 />
                 <Image
                   src={"/arrow.svg"}
                   alt="arrow"
                   width={20}
                   height={20}
-                  className="absolute ml-1 top-0 cursor-pointer transform transition-transform duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:-translate-y-0"
+                  className="absolute ml-1 top-0 cursor-pointer transform transition-transform duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-active:translate-x-0 group-hover:-translate-y-0 group-active:-translate-y-0"
                 />
               </div>
             </Link>
@@ -71,18 +71,20 @@ export default function Work() {
               30+ teams using WebSockets with smooth, real-time updates.
             </div>
 
-            <div className="mt-6 text-neutral-700">
-              · Developed and deployed a full-stack leaderboard system for
-              SquidMaze&apos;s final round.
+            <div className="mt-6 text-neutral-700 flex items-center gap-2">
+              <div className="h-1 w-1 rounded-full bg-black/70"></div> Developed
+              and deployed a full-stack leaderboard system for SquidMaze&apos;s
+              final round.
             </div>
 
-            <div className="mt-1 text-neutral-700">
-              · Built with React, TypeScript, Socket.io, Node.js, and MongoDB.
+            <div className="mt-1 text-neutral-700 flex items-center gap-2">
+              <div className="h-1 w-1 rounded-full bg-black/70"></div> Built
+              with React, TypeScript, Socket.io, Node.js, and MongoDB.
             </div>
 
-            <div className="mt-1 text-neutral-700">
-              · Handled 30+ live teams with real-time score updates during
-              Converges 2025.
+            <div className="mt-1 text-neutral-700 flex items-center gap-2">
+              <div className="h-1 w-1 rounded-full bg-black/70"></div> Handled
+              30+ live teams with real-time score updates during Converges 2025.
             </div>
 
             <div className="mt-5 border border-neutral-600/40 p-3">
@@ -92,7 +94,7 @@ export default function Work() {
               events.
             </div>
           </div>
-          <div className="mt-8 flex items-center justify-start text-xl tracking-widest text-neutral-500 hover:text-neutral-900">
+          <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-neutral-500 hover:text-neutral-900">
             <Link href={"/"} className="flex underline underline-offset-6">
               <Image
                 src={"/icons/right-arrow.svg"}
