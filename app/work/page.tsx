@@ -28,7 +28,7 @@ export default function Work() {
           </div>
 
           <div className="mt-8 text-neutral-600 flex items-center text-lg">
-            Failing. Learning. Building. Repeat. See the results .
+            Turning ideas into impact. See what I’ve built .
             <Link href={"/projects"}>
               <div className="relative overflow-hidden group mb-2">
                 <Image

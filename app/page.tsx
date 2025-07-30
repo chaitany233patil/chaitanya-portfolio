@@ -112,7 +112,7 @@ export default function Home() {
           <div>
             Hi, I&apos;m Chaitanya Patil, a Full-Stack Developer from India. I
             enjoy turning ideas into functional, user-focused web experiences
-            using technologies like Next.js and Express.
+            using technologies like Next.js and Typescript.
           </div>
           <div className="pt-6">
             I work across the stack — from building clean, responsive interfaces
