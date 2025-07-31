@@ -45,19 +45,19 @@ export default function Home() {
 
   const socials = [
     {
-      title: "Insta",
-      logo: "/icons/instagram.svg",
-      alt: "Instagram",
+      title: "Discord",
+      logo: "/icons/discord.svg",
+      alt: "Discord",
       href: "#",
       rotate: "-rotate-25",
       postion: "left-20",
       index: "z-1",
     },
     {
-      title: "Twitter",
-      logo: "/icons/x.svg",
-      alt: "Twitter",
-      href: "#",
+      title: "Insta",
+      logo: "/icons/instagram.svg",
+      alt: "Instagram",
+      href: "https://www.instagram.com/chaitanya_233",
       rotate: "-rotate-15",
       postion: "left-30",
       index: "z-2",
@@ -66,15 +66,15 @@ export default function Home() {
       title: "Linkedin",
       logo: "/icons/linkedin.svg",
       alt: "Linkedin",
-      href: "#",
+      href: "https://www.linkedin.com/in/chaitanya-patil-26ba9b257/",
       rotate: "rotate-0",
       index: "z-3",
     },
     {
-      title: "Discord",
-      logo: "/icons/discord.svg",
-      alt: "Discord",
-      href: "#",
+      title: "Twitter",
+      logo: "/icons/x.svg",
+      alt: "Twitter",
+      href: "https://x.com/PChaitanya529",
       rotate: "rotate-15",
       postion: "right-30",
       index: "z-2",
@@ -242,6 +242,7 @@ export default function Home() {
                       src={social.logo}
                       alt={social.alt}
                       title={social.title}
+                      href={social.href}
                     />
                   ))}
                 </div>
@@ -276,10 +277,10 @@ export default function Home() {
             </Card>
 
             {/* Anime */}
-            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] overflow-hidden">
+            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] active:scale-[90%] overflow-hidden">
               <figure className="relative flex h-full max-w-sm transition-all duration-2000 overflow-hidden">
                 <img
-                  className="rounded-lg hover:scale-[120%] transition-all duration-500"
+                  className="rounded-lg hover:scale-[120%] active:scale-[120%] transition-all duration-500"
                   src="/sonic.jpg"
                   alt="image description"
                 />

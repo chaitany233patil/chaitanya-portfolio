@@ -3,6 +3,7 @@ interface ISocial {
   title: string;
   alt: string;
   className?: string;
+  href?: string;
 }
 
 export const SocialCard = (props: ISocial) => {
@@ -13,8 +14,14 @@ export const SocialCard = (props: ISocial) => {
         props.className
       }
     >
-      <img src={props.src} alt={props.alt} width={20} />
-      <div className="text-[9px] text-neutral-500">{props.title}</div>
+      <a
+        href={props.href}
+        target="_black"
+        className="h-full w-full flex flex-col items-center justify-center gap-1"
+      >
+        <img src={props.src} alt={props.alt} width={20} />
+        <div className="text-[9px] text-neutral-500">{props.title}</div>
+      </a>
     </div>
   );
 };
