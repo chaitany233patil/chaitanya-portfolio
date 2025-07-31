@@ -38,7 +38,7 @@ export default function Projects() {
         "Nodejs",
       ],
       github: "https://github.com/chaitany233patil/Brainly",
-      liveLink: "https://brainly-phi.vercel.app/",
+      liveLink: "https://brainly-landing-page.vercel.app/",
     },
     {
       id: "3",

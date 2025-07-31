@@ -33,7 +33,7 @@ export default function About() {
           <div className="mt-20">
             <div className="text-2xl font-bold">About me</div>
           </div>
-          <div className="flex items-center justify-center gap-8 md:gap-20 mt-10">
+          <div className="flex items-center justify-center gap-10 md:gap-20 mt-10">
             <HeroImage
               className={"-rotate-10"}
               src={"/img1.jpg"}
