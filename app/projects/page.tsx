@@ -1,8 +1,24 @@
+"use client";
+
 import { ProjectCard } from "@/components/ProjectCard";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, Transition } from "framer-motion";
 
 export default function Projects() {
+  const transition: Transition<string> = {
+    duration: 0.5,
+    ease: [0.25, 0.1, 0.25, 1],
+  };
+  const variants = {
+    hidden: {
+      filter: "blur(10px)",
+      transform: "translateY(5%)",
+      opacity: 0,
+    },
+    visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
+  };
+
   const Projects = [
     {
       id: "1",
@@ -86,21 +102,32 @@ export default function Projects() {
           </div>
 
           {/* Project Cards */}
-          <div className="flex flex-col gap-20">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            transition={{ staggerChildren: 0.1 }}
+            className="flex flex-col gap-20"
+          >
             {Projects.map((project) => (
-              <ProjectCard
+              <motion.div
+                transition={transition}
+                variants={variants}
                 key={project.id}
-                id={project.id}
-                image={project.image}
-                title={project.title}
-                data={project.date}
-                desc={project.desc}
-                techStack={project.techStack}
-                github={project.github}
-                liveLInk={project.liveLink}
-              />
+              >
+                <ProjectCard
+                  key={project.id}
+                  id={project.id}
+                  image={project.image}
+                  title={project.title}
+                  data={project.date}
+                  desc={project.desc}
+                  techStack={project.techStack}
+                  github={project.github}
+                  liveLInk={project.liveLink}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-neutral-500 hover:text-neutral-900">
             <Link href={"/"} className="flex underline underline-offset-6">
               <Image

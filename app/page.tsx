@@ -7,8 +7,25 @@ import { SocialCard } from "@/components/SocialCard";
 import { Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, Transition } from "framer-motion";
+import React from "react";
 
 export default function Home() {
+  const transition: Transition<string> = {
+    duration: 1,
+    ease: [0.25, 0.1, 0.25, 1],
+  };
+  const variants = {
+    hidden: {
+      filter: "blur(10px)",
+      transform: "translateY(20%)",
+      opacity: 0,
+    },
+    visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
+  };
+
+  const words = "Chaitanya Patil";
+
   const stack = [
     "/icons/next.svg",
     "/icons/react.svg",
@@ -92,33 +109,69 @@ export default function Home() {
 
   return (
     <section>
-      <div className="relative max-w-2xl mx-auto pt-20 px-6">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        transition={{ staggerChildren: 0.04 }}
+        className="relative max-w-2xl mx-auto pt-20 px-6"
+      >
         <div className="flex justify-between items-center py-4">
           <div>
-            <div className="text-3xl font-semibold mb-1">Chaitanya Patil</div>
-            <div className="text-lg text-neutral-600">Full Stack Developer</div>
+            <div className="text-3xl font-semibold mb-1">
+              {words.split(" ").map((word, index) => (
+                <React.Fragment key={index}>
+                  <motion.span
+                    className="inline-block"
+                    transition={transition}
+                    variants={variants}
+                  >
+                    {word}
+                  </motion.span>
+                  {index < words.length - 1 && " "}
+                </React.Fragment>
+              ))}
+            </div>
+            <motion.div
+              transition={transition}
+              variants={variants}
+              className="text-lg text-neutral-600"
+            >
+              Full Stack Developer
+            </motion.div>
           </div>
-          <div className="relative flex items-center justify-center order-1">
+          <motion.div
+            transition={transition}
+            variants={variants}
+            className="relative flex items-center justify-center order-1"
+          >
             <Image
               src={"/chaitanya.jpg"}
               alt="Chaitanya Patil"
               height={70}
               width={70}
-              className="z-1 rounded-xl"
+              className="z-1 rounded-lg"
             />
-          </div>
+          </motion.div>
         </div>
         <div className="text-lg text-neutral-600 pt-8 leading-7">
-          <div>
+          <motion.div transition={transition} variants={variants}>
             Hi, I&apos;m Chaitanya Patil, a Full-Stack Developer from India. I
             enjoy turning ideas into functional, user-focused web experiences
             using technologies like Next.js and Typescript.
-          </div>
-          <div className="pt-6">
+          </motion.div>
+          <motion.div
+            transition={transition}
+            variants={variants}
+            className="pt-6"
+          >
             I work across the stack — from building clean, responsive interfaces
             to designing secure backend systems that scale.
-          </div>{" "}
-          <div className="pt-6">
+          </motion.div>{" "}
+          <motion.div
+            transition={transition}
+            variants={variants}
+            className="pt-6"
+          >
             I love exploring the web, refining UI/UX details, and learning how
             things work under the hood. You can find my{" "}
             <span className="underline decoration-wavy cursor-pointer">
@@ -126,8 +179,12 @@ export default function Home() {
             </span>{" "}
             here. Currently, I&apos;m diving deeper into Web3 and Improving my
             UI/UX skils.
-          </div>
-          <div className="pt-6 flex items-center ">
+          </motion.div>
+          <motion.div
+            transition={transition}
+            variants={variants}
+            className="pt-6 flex items-center "
+          >
             A snapshot of my work experience.
             <Link href={"/work"}>
               <div className="relative overflow-hidden group">
@@ -147,9 +204,13 @@ export default function Home() {
                 />
               </div>
             </Link>
-          </div>
+          </motion.div>
         </div>
-        <div className="pb-10">
+        <motion.div
+          transition={transition}
+          variants={variants}
+          className="pb-10"
+        >
           <div className="pt-8 underline">Bento</div>
           <div className="pt-10 grid grid-cols-5 grid-rows-5 sm:grid-rows-3 gap-2">
             {/* Playgorund */}
@@ -287,8 +348,8 @@ export default function Home() {
               </figure>
             </Card>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { Github, ArrowRight, Link } from "lucide-react";
+import { Github, ArrowRight } from "lucide-react";
 import { ReactNode } from "react";
 
 interface IProject {

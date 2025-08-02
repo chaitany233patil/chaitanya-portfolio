@@ -13,10 +13,12 @@ function HeroImage(props: IHeroImage) {
     <div
       className={`group max-w-35 flex flex-col gap-3 items-center p-3 bg-neutral-100 border border-neutral-300/30 shadow-2xl ${props.className}`}
     >
-      <img
+      <Image
         src={props.src}
         alt="me"
         className="filter grayscale group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-300"
+        width={100}
+        height={60}
       />
       <div className={`text-lg text-neutral-500 ${parisienne.className}`}>
         {props.title}
@@ -33,7 +35,7 @@ export default function About() {
           <div className="mt-20">
             <div className="text-2xl font-bold">About me</div>
           </div>
-          <div className="flex items-center justify-center gap-10 md:gap-20 mt-10">
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-20 mt-10">
             <HeroImage
               className={"-rotate-10"}
               src={"/img1.jpg"}
