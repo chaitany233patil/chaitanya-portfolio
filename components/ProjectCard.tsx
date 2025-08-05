@@ -82,12 +82,14 @@ export function ProjectCard(props: IProject) {
               title={"Source Code"}
             />
           </a>
-          <a href={props.liveLInk} target="_blank">
-            <Button
-              endIcon={<ArrowRight className="h-3" />}
-              title={"Live Demo"}
-            />
-          </a>
+          {props.liveLInk !== "#" && (
+            <a href={props.liveLInk} target="_blank">
+              <Button
+                endIcon={<ArrowRight className="h-3" />}
+                title={"Live Demo"}
+              />
+            </a>
+          )}
         </div>
       </div>
     </div>
