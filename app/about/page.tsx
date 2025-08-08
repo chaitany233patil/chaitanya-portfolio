@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { parisienne } from "@/components/Font";
+import { motion } from "framer-motion";
 
 interface IHeroImage {
   src: string;
@@ -10,8 +13,11 @@ interface IHeroImage {
 
 function HeroImage(props: IHeroImage) {
   return (
-    <div
-      className={`group max-w-35 flex flex-col gap-3 items-center p-3 bg-neutral-100 border border-neutral-300/30 shadow-2xl ${props.className}`}
+    <motion.div
+      initial={{ scale: 1.2 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 1, type: "spring" }}
+      className={`group max-w-35 flex flex-col gap-3 items-center p-3 bg-neutral-100 border border-neutral-300/30 shadow-2xl/40 ${props.className}`}
     >
       <Image
         src={props.src}
@@ -23,11 +29,16 @@ function HeroImage(props: IHeroImage) {
       <div className={`text-lg text-neutral-500 ${parisienne.className}`}>
         {props.title}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function About() {
+  const photos = [
+    { className: "-rotate-10", src: "/img1.jpg", title: "Adventures" },
+    { className: "rotate-3", src: "/img2.jpg", title: "Explorer" },
+    { className: "rotate-10", src: "/img3.jpg", title: "Dreamer" },
+  ];
   return (
     <section>
       <div className="flex">
@@ -36,21 +47,14 @@ export default function About() {
             <div className="text-2xl font-bold">About me</div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-20 mt-10">
-            <HeroImage
-              className={"-rotate-10"}
-              src={"/img1.jpg"}
-              title={"Adventurer"}
-            />
-            <HeroImage
-              className={"rotate-3"}
-              src={"/img2.jpg"}
-              title={"Explorer"}
-            />
-            <HeroImage
-              className={"rotate-10"}
-              src={"/img3.jpg"}
-              title={"Dreamer"}
-            />
+            {photos.map((item, index) => (
+              <HeroImage
+                key={index}
+                className={item.className}
+                src={item.src}
+                title={item.title}
+              />
+            ))}
           </div>
           <div className="pt-16 px-4 text-neutral-700">
             <div>
