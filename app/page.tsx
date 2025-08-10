@@ -221,15 +221,17 @@ export default function Home() {
                   src="/hero.jpg"
                   alt="image description"
                 />
-                <figcaption className="absolute top-2 right-2 h-8 w-8 hover:rotate-360 active:rotate-360 transition-all duration-500 flex items-center text-lg text-white bottom-6 border border-neutral-500 rounded-full">
-                  <Image
-                    src={"/arrow.svg"}
-                    alt="arrow"
-                    width={25}
-                    height={25}
-                    className="ml-1 cursor-pointer transform transition-transform duration-300"
-                  />
-                </figcaption>
+                <Link href={"/playground"}>
+                  <figcaption className="absolute top-2 right-2 h-8 w-8 hover:rotate-360 active:rotate-360 transition-all duration-500 flex items-center text-lg text-white bottom-6 border border-neutral-500 rounded-full">
+                    <Image
+                      src={"/arrow.svg"}
+                      alt="arrow"
+                      width={25}
+                      height={25}
+                      className="ml-1 cursor-pointer transform transition-transform duration-300"
+                    />
+                  </figcaption>
+                </Link>
               </figure>
             </Card>
 
