@@ -54,8 +54,8 @@ export default function Home() {
 
   const gitStat = [
     { title: "Following", count: "12" },
-    { title: "Followers", count: "0" },
-    { title: "Stars", count: "5" },
+    { title: "Followers", count: "1" },
+    { title: "Stars", count: "6" },
     { title: "Issue", count: "0" },
     { title: "PRs", count: "14" },
   ];
