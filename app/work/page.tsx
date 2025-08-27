@@ -11,7 +11,7 @@ export default function Work() {
             <div className="text-2xl font-bold">My Work</div>
             <a
               href={
-                "https://drive.google.com/file/d/1h5gMC8ZCfQKleBrb1nqbeMGBKMlay3mB/view?usp=sharing"
+                "https://drive.google.com/file/d/1tzdyYZUyQzbv9OJyplRE3532bAinTc23/view"
               }
               target="_blank"
             >
