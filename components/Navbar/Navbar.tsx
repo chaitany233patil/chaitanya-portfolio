@@ -13,6 +13,7 @@ export const Navbar = () => {
     { title: "Work", href: "/work" },
     { title: "Projects", href: "/projects" },
     { title: "About", href: "/about" },
+    { title: "Contact", href: "/contact" },
     { title: "Playground", href: "/playground" },
   ];
 
@@ -126,7 +127,7 @@ export const Navbar = () => {
                 exit="hidden"
                 className="flex flex-col items-center text-neutral-500 gap-4 pt-6 border-b border-neutral-500/20 rounded-b-xl pb-6 overflow-hidden"
               >
-                {NavItems.map((item, index) => (
+                {NavItems.map((item) => (
                   <motion.div
                     key={item.title}
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

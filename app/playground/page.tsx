@@ -8,6 +8,7 @@ import Player from "@/components/Player";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-expect-error
 const Image = ({ src, alt, width, height, className }) => (
+  // eslint-disable-next-line @next/next/no-img-element
   <img
     src={src}
     alt={alt}
@@ -31,12 +32,6 @@ export default function Playground() {
       image: "/playlist/track2.jpg",
       href: "https://open.spotify.com/track/1UEbsf5kGEIcSMiWexOkrZ?si=692b53ea30e4474b",
     },
-    // {
-    //   title: "Summer Heat",
-    //   artist: "Pop Artist",
-    //   image: "/playlist/track3.jpeg",
-    // },
-    // { title: "Midnight", artist: "Electronic", image: "/playlist/track4.jpeg" },
   ];
 
   return (
