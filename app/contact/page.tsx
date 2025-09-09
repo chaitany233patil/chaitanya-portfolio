@@ -1,9 +1,9 @@
 "use client";
 
-import { Send } from "lucide-react";
+import { Send, X } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
+import axios from "axios";
 interface InputProps {
   label: string;
   placeholder: string;
@@ -63,6 +63,10 @@ function Input({
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<ValidationErrors>({});
+  const [successWindow, setSuccessWindow] = useState<{
+    message: string;
+    status: boolean;
+  }>({ status: false, message: "" });
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -103,16 +107,34 @@ export default function Contact() {
       setLoading(false);
       return;
     }
+    if (localStorage.getItem("newsLetterEmail")) {
+      setSuccessWindow({
+        status: true,
+        message: "You have already sent a message.",
+      });
+      return;
+    }
+    localStorage.setItem("newsLetterEmail", formData.email);
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 2000));
-    console.log(formData);
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-    setErrors({});
+    const response = await axios.post("/api/mail", formData);
+    console.log(response.data);
+    if (response.status == 200) {
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+      setLoading(false);
+      setSuccessWindow({
+        status: true,
+        message: "Email Sent Successfully",
+      });
+      setTimeout(() => {
+        setSuccessWindow({ status: false, message: "" });
+      }, 3000);
+    }
     setLoading(false);
+    setErrors({});
   }
 
   return (
@@ -169,7 +191,9 @@ export default function Contact() {
             <button
               onClick={submithandler}
               disabled={loading}
-              className={`flex items-center justify-center bg-neutral-900 text-white rounded px-4 py-2 mt-2 hover:bg-neutral-700 ${loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"} transition-all duration-300 mb-6`}
+              className={`flex items-center justify-center bg-neutral-900 text-white rounded px-4 py-2 mt-2 hover:bg-neutral-700 ${
+                loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+              } transition-all duration-300 mb-6`}
             >
               {loading ? (
                 <>
@@ -186,6 +210,22 @@ export default function Contact() {
             <Send className="text-neutral-500 h-1/2 w-1/2" />
           </div>
         </div>
+        {successWindow.status && (
+          <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ x: 10, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-1 right-4 md:top-auto md:bottom-35 md:right-10 bg-neutral-900 text-white px-4 py-4 rounded-md text-md flex justify-between items-center gap-6 "
+          >
+            {successWindow.message}
+            <X
+              size={20}
+              className="cursor-pointer"
+              onClick={() => setSuccessWindow({ status: false, message: "" })}
+            />
+          </motion.div>
+        )}
       </div>
     </section>
   );
