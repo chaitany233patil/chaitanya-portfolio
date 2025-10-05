@@ -48,7 +48,7 @@ const ScrollingRow = ({
             alt="tech"
             width={40}
             height={40}
-            className="transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 active:grayscale-0"
+            className="transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 dark:grayscale-0 active:grayscale-0"
           />
         ))}
       </div>

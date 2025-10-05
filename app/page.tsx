@@ -108,7 +108,7 @@ export default function Home() {
   ];
 
   return (
-    <section>
+    <section className="bg-whitemin-h-screen">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -117,7 +117,7 @@ export default function Home() {
       >
         <div className="flex justify-between items-center py-4">
           <div>
-            <div className="text-3xl font-semibold mb-1">
+            <div className="text-3xl font-semibold mb-1 text-textMain dark:text-textLight">
               {words.split(" ").map((word, index) => (
                 <React.Fragment key={index}>
                   <motion.span
@@ -134,7 +134,7 @@ export default function Home() {
             <motion.div
               transition={transition}
               variants={variants}
-              className="text-lg text-neutral-600"
+              className="text-lg italic"
             >
               Full Stack Developer
             </motion.div>
@@ -147,13 +147,13 @@ export default function Home() {
             <Image
               src={"/chaitanya.jpg"}
               alt="Chaitanya Patil"
-              height={70}
-              width={70}
-              className="z-1 rounded-lg"
+              height={80}
+              width={80}
+              className="z-1 rounded-sm"
             />
           </motion.div>
         </div>
-        <div className="text-lg text-neutral-600 pt-8 leading-7">
+        <div className="text-lg pt-8 leading-7 text-gray-800 dark:text-textMain">
           <motion.div transition={transition} variants={variants}>
             Hi, I&apos;m Chaitanya Patil, a Full-Stack Developer from India. I
             enjoy turning ideas into functional, user-focused web experiences
@@ -174,7 +174,7 @@ export default function Home() {
           >
             I love exploring the web, refining UI/UX details, and learning how
             things work under the hood. You can find my{" "}
-            <span className="underline decoration-wavy cursor-pointer">
+            <span className="underline decoration-wavy cursor-pointer text-gray-900 dark:text-textLight">
               crafts
             </span>{" "}
             here. Currently, I&apos;m diving deeper into Web3 and Improving my
@@ -183,7 +183,7 @@ export default function Home() {
           <motion.div
             transition={transition}
             variants={variants}
-            className="pt-6 flex items-center "
+            className="pt-6 flex items-center text-gray-800 dark:text-textMain"
           >
             A snapshot of my work experience.
             <Link href={"/work"}>
@@ -206,15 +206,16 @@ export default function Home() {
             </Link>
           </motion.div>
         </div>
+
         <motion.div
           transition={transition}
           variants={variants}
           className="pb-10"
         >
-          <div className="pt-8 underline">Bento</div>
+          <div className="pt-8 underline text-gray-900">Bento</div>
           <div className="pt-10 grid grid-cols-5 grid-rows-5 sm:grid-rows-3 gap-2">
             {/* Playgorund */}
-            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] active:scale-[90%] overflow-hidden">
+            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] active:scale-[90%] overflow-hidden bg-gray-50 dark:bg-cardBg">
               <figure className="relative flex h-full max-w-sm transition-all duration-2000 overflow-hidden">
                 <img
                   className="rounded-lg hover:scale-[120%] active:scale-[120%] transition-all duration-500"
@@ -222,7 +223,7 @@ export default function Home() {
                   alt="image description"
                 />
                 <Link href={"/playground"}>
-                  <figcaption className="absolute top-2 right-2 h-8 w-8 hover:rotate-360 active:rotate-360 transition-all duration-500 flex items-center text-lg text-white bottom-6 border border-neutral-500 rounded-full">
+                  <figcaption className="absolute top-2 right-2 h-8 w-8 hover:rotate-360 active:rotate-360 transition-all duration-500 flex items-center text-lg text-white bottom-6 border border-neutral-500 dark:border-accentMuted rounded-full">
                     <Image
                       src={"/arrow.svg"}
                       alt="arrow"
@@ -238,35 +239,35 @@ export default function Home() {
             {/* Tech Stack */}
             <Card
               className={
-                "col-span-5 sm:col-span-4 px-3 h-60 flex flex-col justify-between items-center overflow-hidden"
+                "col-span-5 sm:col-span-4 px-3 h-60 flex flex-col justify-between items-center overflow-hidden bg-gray-50 dark:bg-cardBg"
               }
             >
-              <div className="flex flex-col justify-center h-full w-full gap-8 pb-4">
+              <div className="flex flex-col justify-center h-full w-full pb-4">
                 <div className="flex w-full text-md tracking-tight pt-2 ps-2 font-serif">
-                  <span className="font-medium bg-gradient-to-r from-blue-300 to-purple-900 bg-clip-text text-transparent">
+                  <span className="text-lg font-medium bg-gradient-to-r from-blue-400 to-purple-600 dark:from-accentBlue dark:to-purple-900 bg-clip-text text-transparent">
                     Stacks
                   </span>
                 </div>
-                <div className="relative flex flex-col items-center justify-center gap-8 overflow-hidden">
-                  <ScrollingRow images={stack} />
-                  <ScrollingRow images={revStack} reverse />
-                  {/* Left Fade */}
-                  <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+                <div className="relative h-full flex items-center overflow-hidden">
+                  <div className="flex flex-col gap-8">
+                    <ScrollingRow images={stack} />
+                    <ScrollingRow images={revStack} reverse />
+                    {/* Left Fade */}
+                    <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-gray-50 dark:from-cardBg to-transparent pointer-events-none" />
 
-                  {/* Right Fade */}
-                  <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+                    {/* Right Fade */}
+                    <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-gray-50 dark:from-cardBg to-transparent pointer-events-none" />
+                  </div>
                 </div>
               </div>
             </Card>
 
             {/* Github */}
-            <Card className="col-span-3 sm:col-span-2 row-span-2 group">
+            <Card className="col-span-3 sm:col-span-2 row-span-2 group bg-gray-50 dark:bg-cardBg">
               <a href="https://github.com/chaitany233patil" target="_blank">
-                <div>
-                  <div className="text-md text-neutral-400 p-2 font-serif flex items-center">
-                    <Github className="h-4" />
-                    Github
-                  </div>
+                <div className="text-md text-gray-500 dark:text-accentMuted p-2 font-serif flex items-center">
+                  <Github className="h-4" />
+                  Github
                 </div>
                 <div className="flex items-center justify-center mb-2">
                   <GithubHeatMap />
@@ -275,14 +276,16 @@ export default function Home() {
                   {gitStat.map(({ title, count }, index) => (
                     <div
                       key={index}
-                      className={`flex border border-gray-400/40 py-3 px-3 text-neutral-400 bg-gradient-to-b from-neutral-50 to-yellow-200/10 transition-all duration-600 w-1/2 ${
+                      className={`flex border border-gray-300 dark:border-gray-700 py-3 px-3 text-gray-700 dark:text-textMain bg-gradient-to-b from-gray-100 to-gray-50 dark:from-cardBgLight dark:to-cardBg transition-all duration-600 w-1/2 ${
                         index % 2 == 0
-                          ? "self-start rounded-r-full group-hover:w-3/5 justify-end group-active:w-3/5"
+                          ? "self-start rounded-r-full group-hover:w-3/5 justify-end group-active:w-3/5 "
                           : "self-end rounded-l-full group-hover:w-3/5 justify-start group-active:w-3/5"
                       }`}
                     >
                       {title}
-                      <span className="ml-2 text-black">{count}</span>
+                      <span className="ml-2 text-gray-900 dark:text-textLight">
+                        {count}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -290,9 +293,9 @@ export default function Home() {
             </Card>
 
             {/* Social */}
-            <Card className="order-2 sm:order-none col-span-5 sm:col-span-3 rowspan-2 group">
+            <Card className="order-2 sm:order-none col-span-5 sm:col-span-3 rowspan-2 group bg-gray-50 dark:bg-cardBg">
               <div className="flex flex-col h-full items-center">
-                <div className="text-md text-neutral-400 p-2 font-serif w-full">
+                <div className="text-md text-gray-500 dark:text-accentMuted p-2 font-serif w-full">
                   Social
                 </div>
                 <div
@@ -313,20 +316,20 @@ export default function Home() {
             </Card>
 
             {/* VScode Stat */}
-            <Card className="relative order-3 sm:order-none col-span-5 sm:col-span-2 group flex flex-col justify-between overflow-hidden">
+            <Card className="relative order-3 sm:order-none col-span-5 sm:col-span-2 group flex flex-col justify-between overflow-hidden bg-gray-50 dark:bg-cardBg">
               <div className="m-3">
                 <img src={"/icons/code.svg"} width={25} />
               </div>
               <div className="h-full flex items-center mt-[-60px] justify-center flex-col gap-2">
                 <div className="">
-                  <span className="text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-neutral-500 via-neutral-500 to-black ">
+                  <span className="text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-500 via-gray-600 to-gray-900 dark:from-neutral-500 dark:via-neutral-400 dark:to-textLight">
                     940
                   </span>
-                  <span className=" tracking-tight ml-3 text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-950">
+                  <span className="tracking-tight ml-3 text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-blue-800 dark:from-accentBlue dark:to-blue-950">
                     hrs
                   </span>
                 </div>
-                <div className="text-sm text-green-400">
+                <div className="text-sm text-green-500 dark:text-accentGreen">
                   <span className="mr-1">(</span>Wakatime
                   <span className="ml-1">)</span>
                 </div>
@@ -340,7 +343,7 @@ export default function Home() {
             </Card>
 
             {/* Anime */}
-            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] active:scale-[90%] overflow-hidden">
+            <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] active:scale-[90%] overflow-hidden bg-gray-50 dark:bg-cardBg">
               <figure className="relative flex h-full max-w-sm transition-all duration-2000 overflow-hidden">
                 <img
                   className="rounded-lg hover:scale-[120%] active:scale-[120%] transition-all duration-500"

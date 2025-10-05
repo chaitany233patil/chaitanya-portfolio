@@ -8,7 +8,7 @@ export const Card = ({
   return (
     <div
       className={
-        "rounded-xl shadow-md bg-white transition-all border border-neutral-600/15 " +
+        "rounded-xl shadow-md bg-white transition-all border border-neutral-600/15 dark:bg-cardBg " +
         className
       }
     >

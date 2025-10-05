@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
+    <html lang="en" className="">
+      <body className={`${poppins.variable} antialiased dark:bg-dark`}>
         <Navbar />
         {children}
         <Footer />

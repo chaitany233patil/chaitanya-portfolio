@@ -25,3 +25,22 @@
 .scroll-reverse {
   animation: scroll-reverse 8s linear infinite;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-dark: #121212;
+  --color-cardBg: "#181a20";
+  --color-cardBgLight: "#23272F";
+  --color-textMain: "#F3F6F9";
+  --color-light: "#FFFFFF";
+  --color-accentGreen: "#39D353";
+  --color-accentBlue: "#30B9D4";
+  --color-accentAqua: "#7FFFD4";
+  --color-accentMuted: "#A8B3CF";
+  --color-socialDiscord: "#5865F2";
+  --color-socialInstagram: "#E1306C";
+  --color-socialLinkedin: "#0A66C2";
+  --color-socialTwitter: "#1DA1F2";
+  --color-socialSpotify: "#1ED760";
+}

@@ -13,8 +13,8 @@ export const Navbar = () => {
     { title: "Work", href: "/work" },
     { title: "Projects", href: "/projects" },
     { title: "About", href: "/about" },
-    { title: "Contact", href: "/contact" },
     { title: "Playground", href: "/playground" },
+    { title: "Contact", href: "/contact" },
   ];
 
   const containerVariants = {
@@ -76,7 +76,7 @@ export const Navbar = () => {
         <div className="flex gap-8">
           {NavItems.map((item, index) => (
             <Link key={index} href={item.href}>
-              <div className="text-neutral-500 hover:text-neutral-900 text-lg transition-all duration-300 relative group">
+              <div className="text-lg transition-all duration-300 relative group dark:text-white">
                 {item.title}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neutral-900 transition-all duration-300 group-hover:w-full"></span>
               </div>
@@ -141,10 +141,10 @@ export const Navbar = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Link href={item.href}>
-                      <div className="text-neutral-500 hover:text-neutral-900 transition-colors duration-300 text-lg font-medium relative">
+                      <div className="text-neutral-500transition-colors duration-300 text-lg font-medium relative">
                         {item.title}
                         <motion.div
-                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-neutral-900 rounded-full"
+                          className="absolute inset-0"
                           initial={{ scaleX: 0 }}
                           whileHover={{ scaleX: 1 }}
                           transition={{ duration: 0.3, ease: "easeOut" }}
