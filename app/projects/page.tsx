@@ -4,6 +4,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Transition } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -170,15 +171,9 @@ export default function Projects() {
               </motion.div>
             ))}
           </motion.div>
-          <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-neutral-500 hover:text-neutral-900">
+          <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-black hover:text-neutral-900 dark:text-textMain">
             <Link href={"/"} className="flex underline underline-offset-6">
-              <Image
-                src={"/icons/right-arrow.svg"}
-                alt={"Navigate"}
-                width={20}
-                height={20}
-                className="mt-1"
-              />
+              <ChevronRight width={20} height={20} className="mt-1" />
               <div>cd .&nbsp;.</div>
             </Link>
           </div>

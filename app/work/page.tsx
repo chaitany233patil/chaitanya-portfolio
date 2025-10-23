@@ -1,3 +1,4 @@
+import { ArrowUpRight, ChevronRight, MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,10 +17,10 @@ export default function Work() {
               target="_blank"
             >
               <div className="relative group">
-                <div className="absolute inset-0 bg-black transition-all duration-300 rounded-lg group-hover:rounded-none"></div>
+                <div className="absolute inset-0 bg-black dark:bg-white transition-all duration-300 rounded-lg group-hover:rounded-none"></div>
                 <div
                   className="
-                    relative z-10 flex items-center text-md font-semibold justify-center border-2 border-dashed border-white 
+                    relative z-10 flex items-center text-md font-semibold justify-center border-2 border-dashed border-black dark:border-white 
                     px-3 py-1 rounded-lg bg-white dark:bg-dark dark:text-textMain transition-all duration-300 group-hover:-translate-x-1 
                     group-active:-translate-x-1 group-hover:-translate-y-1 group-active:-translate-y-1 
                     group-hover:rounded-none group-active:rounded-none"
@@ -41,16 +42,12 @@ export default function Work() {
             Turning ideas into impact. See what I’ve built .
             <Link href={"/projects"}>
               <div className="relative overflow-hidden group mb-2">
-                <Image
-                  src={"/arrow.svg"}
-                  alt="arrow"
+                <ArrowUpRight
                   width={20}
                   height={20}
                   className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-active:translate-x-4 group-hover:-translate-y-4 group-active:-translate-y-4"
                 />
-                <Image
-                  src={"/arrow.svg"}
-                  alt="arrow"
+                <ArrowUpRight
                   width={20}
                   height={20}
                   className="absolute ml-1 top-0 cursor-pointer transform transition-transform duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-active:translate-x-0 group-hover:-translate-y-0 group-active:-translate-y-0"
@@ -104,16 +101,13 @@ export default function Work() {
               events.
             </div>
           </div>
-          <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-neutral-500 hover:text-neutral-900">
-            <Link href={"/"} className="flex underline underline-offset-6">
-              <Image
-                src={"/icons/right-arrow.svg"}
-                alt={"Navigate"}
-                width={20}
-                height={20}
-                className="mt-1"
-              />
-              <div className="dark:text-textMain">cd .&nbsp;.</div>
+          <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-black hover:text-neutral-900">
+            <Link
+              href={"/"}
+              className="flex underline underline-offset-6 dark:text-textMain"
+            >
+              <ChevronRight width={20} height={20} className="mt-1" />
+              <div>cd .&nbsp;.</div>
             </Link>
           </div>
         </div>

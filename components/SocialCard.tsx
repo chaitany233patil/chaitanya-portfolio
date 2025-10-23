@@ -21,7 +21,7 @@ export const SocialCard = (props: ISocial) => {
         className="h-full w-full flex flex-col items-center justify-center gap-1"
       >
         <img src={props.src} alt={props.alt} width={20} />
-        <div className="text-[9px] text-neutral-500 dark:text-textMain">
+        <div className="text-[9px] text-neutral-500 dark:text-textMain tracking-widest">
           {props.title}
         </div>
       </a>

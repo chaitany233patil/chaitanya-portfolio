@@ -35,7 +35,7 @@ export default function Playground() {
   ];
 
   return (
-    <section className="min-h-screen bg-white">
+    <section className="min-h-screen">
       <div className="flex justify-center px-4">
         <div className="max-w-2xl mx-auto w-full">
           <motion.div
@@ -44,14 +44,13 @@ export default function Playground() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="text-2xl font-bold text-neutral-900 mb-2">
+            <div className="text-2xl font-bold text-neutral-900 mb-2 dark:text-textMain">
               Playground
             </div>
-            <div className="h-1 w-16 bg-gradient-to-r from-neutral-800 to-neutral-500 rounded-full"></div>
           </motion.div>
 
           <motion.div
-            className="mt-8 text-neutral-700 text-base leading-relaxed"
+            className="mt-8 text-neutral-700 text-base leading-relaxed dark:text-textMain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
@@ -67,7 +66,7 @@ export default function Playground() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.4 }}
           >
-            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-6">
+            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-6 dark:text-textMain">
               Featured Tracks
             </h3>
 
@@ -123,7 +122,7 @@ export default function Playground() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-6">
+            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-6 dark:text-textMain">
               Music Player
             </h3>
             <Player />

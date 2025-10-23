@@ -35,13 +35,15 @@ function Input({
 }: InputProps) {
   return (
     <div className="mb-4">
-      <label className="block text-md font-medium mb-2">{label}</label>
+      <label className="block text-md font-medium mb-2 dark:text-textMain">
+        {label}
+      </label>
       <input
         onChange={onChange}
         type={type}
         value={value}
         placeholder={placeholder}
-        className={`border rounded p-2 w-full transition-colors ${
+        className={`border rounded p-2 w-full transition-colors dark:text-textMain ${
           error
             ? "border-red-500 focus:border-red-500"
             : "border-neutral-300/50 focus:border-neutral-400"
@@ -141,7 +143,9 @@ export default function Contact() {
     <section className="min-h-screen flex relative">
       <div className="mx-auto w-full max-w-xl px-6">
         <div className="relative mt-16 border border-neutral-300/50 flex flex-col items-center p-3 rounded-md">
-          <div className="text-2xl font-bold my-6">Contact me</div>
+          <div className="text-2xl font-bold my-6 dark:text-textMain">
+            Contact me
+          </div>
           <div className="flex flex-col w-full px-6">
             <Input
               onChange={(e) =>
@@ -164,7 +168,9 @@ export default function Contact() {
               error={errors.email}
             />
             <div className="mb-4">
-              <label className="block text-md font-medium mb-2">Message</label>
+              <label className="block text-md font-medium mb-2 dark:text-textMain">
+                Message
+              </label>
               <textarea
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, message: e.target.value }))
@@ -172,7 +178,7 @@ export default function Contact() {
                 value={formData.message}
                 rows={4}
                 placeholder="Enter your message"
-                className={`border rounded p-2 w-full transition-colors ${
+                className={`border rounded p-2 w-full transition-colors dark:text-textMain ${
                   errors.message
                     ? "border-red-500 focus:border-red-500"
                     : "border-neutral-300/50 focus:border-neutral-400"
@@ -191,7 +197,7 @@ export default function Contact() {
             <button
               onClick={submithandler}
               disabled={loading}
-              className={`flex items-center justify-center bg-neutral-900 text-white rounded px-4 py-2 mt-2 hover:bg-neutral-700 ${
+              className={`flex items-center justify-center bg-neutral-900 text-white rounded px-4 py-2 mt-2 hover:bg-neutral-700 dark:bg-light dark:text-black font-semibold ${
                 loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
               } transition-all duration-300 mb-6`}
             >

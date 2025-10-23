@@ -4,11 +4,11 @@ import { Card } from "@/components/Card";
 import { GithubHeatMap } from "@/components/GithubHeatMap";
 import ScrollingRow from "@/components/ScrollingRow";
 import { SocialCard } from "@/components/SocialCard";
-import { Github } from "lucide-react";
+import { ArrowUpRight, CodeXml, Github, MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Transition } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 
 const WORDS = "Chaitanya Patil";
 
@@ -112,6 +112,8 @@ export default function Home() {
     visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
   };
 
+  useEffect(() => {});
+
   return (
     <section className="bg-whitemin-h-screen">
       <motion.div
@@ -122,7 +124,7 @@ export default function Home() {
       >
         <div className="flex justify-between items-center py-4">
           <div>
-            <div className="text-3xl font-semibold mb-1 text-textMain dark:text-textMain">
+            <div className="text-3xl font-semibold mb-1 dark:text-textMain">
               {WORDS.split(" ").map((word, index) => (
                 <React.Fragment key={index}>
                   <motion.span
@@ -193,16 +195,12 @@ export default function Home() {
             A snapshot of my work experience.
             <Link href={"/work"}>
               <div className="relative overflow-hidden group">
-                <Image
-                  src={"/arrow.svg"}
-                  alt="arrow"
+                <ArrowUpRight
                   width={20}
                   height={20}
                   className="ml-1 cursor-pointer transform transition-transform duration-300 group-hover:translate-x-4 group-active:translate-x-4 group-hover:-translate-y-4 group-active:-translate-y-4"
                 />
-                <Image
-                  src={"/arrow.svg"}
-                  alt="arrow"
+                <ArrowUpRight
                   width={20}
                   height={20}
                   className="absolute ml-1 top-0 cursor-pointer transform transition-transform duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:-translate-y-0"
@@ -231,9 +229,7 @@ export default function Home() {
                 />
                 <Link href={"/playground"}>
                   <figcaption className="absolute top-2 right-2 h-8 w-8 hover:rotate-360 active:rotate-360 transition-all duration-500 flex items-center text-lg text-white bottom-6 border border-neutral-500 dark:border-accentMuted rounded-full">
-                    <Image
-                      src={"/arrow.svg"}
-                      alt="arrow"
+                    <ArrowUpRight
                       width={25}
                       height={25}
                       className="ml-1 cursor-pointer transform transition-transform duration-300"
@@ -290,7 +286,7 @@ export default function Home() {
                       }`}
                     >
                       {title}
-                      <span className="ml-2 text-gray-900 dark:text-accentAqua">
+                      <span className="ml-2 text-gray-900 dark:text-textMain">
                         {count}
                       </span>
                     </div>
@@ -325,7 +321,7 @@ export default function Home() {
             {/* VScode Stat */}
             <Card className="relative order-3 sm:order-none col-span-5 sm:col-span-2 group flex flex-col justify-between overflow-hidden bg-gray-50 dark:bg-cardBg">
               <div className="m-3">
-                <img src={"/icons/code.svg"} width={25} />
+                <CodeXml stroke={`#fff`} />
               </div>
               <div className="h-full flex items-center mt-[-60px] justify-center flex-col gap-2">
                 <div className="">

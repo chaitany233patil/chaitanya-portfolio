@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { parisienne } from "@/components/Font";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { ChevronRight } from "lucide-react";
 
 interface IHeroImage {
   src: string;
@@ -17,7 +20,7 @@ function HeroImage(props: IHeroImage) {
       initial={{ scale: 1.2 }}
       animate={{ scale: 1 }}
       transition={{ duration: 1, type: "spring" }}
-      className={`group max-w-35 flex flex-col gap-3 items-center p-3 bg-neutral-100 border border-neutral-300/30 shadow-2xl/40 ${props.className}`}
+      className={`group max-w-35 flex flex-col gap-3 items-center p-3 bg-neutral-100 border border-neutral-300/30 shadow-2xl/40 dark:bg-cardBg dark:border-none ${props.className}`}
     >
       <Image
         src={props.src}
@@ -33,12 +36,21 @@ function HeroImage(props: IHeroImage) {
   );
 }
 
+const photos = [
+  { className: "-rotate-10", src: "/img1.jpg", title: "Adventures" },
+  { className: "rotate-3", src: "/img2.jpg", title: "Explorer" },
+  { className: "rotate-10", src: "/img3.jpg", title: "Dreamer" },
+];
+
 export default function About() {
-  const photos = [
-    { className: "-rotate-10", src: "/img1.jpg", title: "Adventures" },
-    { className: "rotate-3", src: "/img2.jpg", title: "Explorer" },
-    { className: "rotate-10", src: "/img3.jpg", title: "Dreamer" },
-  ];
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section>
       <div className="flex">
@@ -58,10 +70,10 @@ export default function About() {
               />
             ))}
           </div>
-          <div className="pt-16 px-4 text-neutral-700">
+          <div className="pt-16 px-4 text-neutral-700 dark:text-white">
             <div>
               Hey there! I’m{" "}
-              <span className="text-neutral-950 font-semibold">
+              <span className="text-neutral-950 font-semibold dark:text-textMain">
                 {" "}
                 Chaitanya Patil
               </span>
@@ -82,7 +94,7 @@ export default function About() {
               well, but feel great to use.
             </div>
 
-            <div className="text-black text-xl font-bold mt-6">
+            <div className="text-black text-xl font-bold mt-6 dark:text-textMain">
               What Drives Me
             </div>
             <div className="mt-3">
@@ -91,15 +103,31 @@ export default function About() {
               Next.js + Tailwind CSS or setting up a secure backend with Express
               and MongoDB, I’m always excited to bring projects to life.
             </div>
-            <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-neutral-500 hover:text-neutral-900">
-              <Link href={"/"} className="flex underline underline-offset-6">
-                <Image
-                  src={"/icons/right-arrow.svg"}
-                  alt={"Navigate"}
-                  width={20}
-                  height={20}
-                  className="mt-1"
-                />
+
+            <div className="text-black text-xl font-bold mt-6 dark:text-textMain self-end">
+              Signature
+            </div>
+            <div>
+              <Image
+                src={
+                  mounted
+                    ? currentTheme === "dark"
+                      ? "/sign_light.png"
+                      : "/sign_dark.png"
+                    : "/sign_light.png"
+                }
+                alt="signature"
+                width={75}
+                height={75}
+              />
+            </div>
+
+            <div className="mt-8 flex items-center justify-start text-lg tracking-wider text-black hover:text-neutral-900">
+              <Link
+                href={"/"}
+                className="flex underline underline-offset-6 dark:text-textMain"
+              >
+                <ChevronRight width={20} height={20} className="mt-1" />
                 <div>cd .&nbsp;.</div>
               </Link>
             </div>

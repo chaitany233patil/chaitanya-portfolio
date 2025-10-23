@@ -15,8 +15,8 @@ interface IProject {
 function Stack(props: { title: string }) {
   return (
     <div className="flex">
-      <div className="flex items-center gap-2 text-xs font-semibold bg-neutral-100 py-1 px-3 rounded-lg border border-neutral-200">
-        <div className="border-2 rounded-full h-3"></div>
+      <div className="flex items-center gap-2 text-xs font-semibold bg-neutral-100 py-1 px-3 rounded-lg border border-neutral-200 dark:text-black ">
+        <div className="border-2 rounded-full h-3 dark:text-black"></div>
         {props.title}
       </div>
     </div>

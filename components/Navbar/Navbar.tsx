@@ -4,76 +4,90 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AlignJustify, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ThemeSwitcher from "../../components/DarkModeButton";
+import { useTheme } from "next-themes";
+
+const NavItems = [
+  { title: "Work", href: "/work" },
+  { title: "Projects", href: "/projects" },
+  { title: "About", href: "/about" },
+  { title: "Playground", href: "/playground" },
+  { title: "Contact", href: "/contact" },
+];
+
+const containerVariants = {
+  hidden: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.4, 0.0, 0.2, 1],
+      when: "afterChildren",
+    },
+  },
+  visible: {
+    height: "auto",
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.4, 0.0, 0.2, 1],
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 15,
+    scale: 0.98,
+    transition: {
+      duration: 0.4,
+      ease: [0.4, 0.0, 0.2, 1],
+    },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0.0, 0.2, 1],
+    },
+  },
+};
 
 export const Navbar = () => {
   const [isOpen, setisOpen] = useState<boolean>(false);
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const [mounted, setMounted] = useState(false);
 
-  const NavItems = [
-    { title: "Work", href: "/work" },
-    { title: "Projects", href: "/projects" },
-    { title: "About", href: "/about" },
-    { title: "Playground", href: "/playground" },
-    { title: "Contact", href: "/contact" },
-  ];
-
-  const containerVariants = {
-    hidden: {
-      height: 0,
-      opacity: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.4, 0.0, 0.2, 1],
-        when: "afterChildren",
-      },
-    },
-    visible: {
-      height: "auto",
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.4, 0.0, 0.2, 1],
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 15,
-      scale: 0.98,
-      transition: {
-        duration: 0.4,
-        ease: [0.4, 0.0, 0.2, 1],
-      },
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.4, 0.0, 0.2, 1],
-      },
-    },
-  };
-
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <section>
       {/* Desktop Navbar */}
       <div className="max-w-7xl mx-auto hidden sm:flex justify-between items-center my-2 px-3">
         <Link href="/">
           <Image
-            src={"/sign_light.png"}
+            src={
+              mounted
+                ? currentTheme === "dark"
+                  ? "/sign_light.png"
+                  : "/sign_dark.png"
+                : "/sign_light.png"
+            }
             alt="signature"
             width={75}
             height={75}
           />
         </Link>
-        <div className="flex gap-8">
+        <div className="flex items-center justify-center gap-8">
           {NavItems.map((item, index) => (
             <Link key={index} href={item.href}>
               <div className="text-lg transition-all duration-300 relative group dark:text-white">
@@ -82,6 +96,7 @@ export const Navbar = () => {
               </div>
             </Link>
           ))}
+          <ThemeSwitcher />
         </div>
       </div>
 
@@ -91,19 +106,27 @@ export const Navbar = () => {
           <div className="flex items-center justify-between">
             <Link href="/">
               <Image
-                src={"/sign_light.png"}
+                src={
+                  mounted
+                    ? currentTheme === "dark"
+                      ? "/sign_light.png"
+                      : "/sign_dark.png"
+                    : "/sign_light.png"
+                }
                 alt="signature"
                 width={60}
                 height={60}
+                style={{ width: "auto", height: "auto" }}
               />
             </Link>
             <motion.div
-              className="cursor-pointer"
-              onClick={() => setisOpen((prev) => !prev)}
+              className="cursor-pointer flex items-center gap-4"
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.1 }}
             >
+              <ThemeSwitcher className={"mt-[-6px]"} />
               <motion.div
+                onClick={() => setisOpen((prev) => !prev)}
                 animate={{ rotate: isOpen ? 90 : 0 }}
                 transition={{ duration: 0.3, ease: [0.4, 0.0, 0.2, 1] }}
               >
