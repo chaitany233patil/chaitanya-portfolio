@@ -44,7 +44,9 @@ export default function About() {
       <div className="flex">
         <div className="max-w-2xl w-full mx-auto px-6">
           <div className="mt-20">
-            <div className="text-2xl font-bold">About me</div>
+            <div className="text-2xl font-bold dark:text-textMain">
+              About me
+            </div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-20 mt-10">
             {photos.map((item, index) => (

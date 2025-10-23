@@ -64,13 +64,13 @@ export const Navbar = () => {
   return (
     <section>
       {/* Desktop Navbar */}
-      <div className="max-w-7xl mx-auto hidden sm:flex justify-between items-center my-6 px-3">
+      <div className="max-w-7xl mx-auto hidden sm:flex justify-between items-center my-2 px-3">
         <Link href="/">
           <Image
-            src={"/signature.svg"}
+            src={"/sign_light.png"}
             alt="signature"
-            width={100}
-            height={100}
+            width={75}
+            height={75}
           />
         </Link>
         <div className="flex gap-8">
@@ -87,14 +87,14 @@ export const Navbar = () => {
 
       {/* Mobile NavBar */}
       <div className="flex sm:hidden">
-        <div className="w-full my-6 px-3">
+        <div className="w-full my-2 px-3">
           <div className="flex items-center justify-between">
             <Link href="/">
               <Image
-                src={"/signature.svg"}
+                src={"/sign_light.png"}
                 alt="signature"
-                width={100}
-                height={100}
+                width={60}
+                height={60}
               />
             </Link>
             <motion.div

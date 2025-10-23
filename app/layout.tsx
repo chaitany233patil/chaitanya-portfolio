@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: "Chaitanya Patil | Full-Stack Developer Portfolio",
   description:
     "Hi, I'm Chaitanya Patil, a Full-Stack Developer from India. I build functional, user-focused web experiences.",
+  icons: {
+    icon: "/sign_light.png",
+  },
 };
 
 export default function RootLayout({

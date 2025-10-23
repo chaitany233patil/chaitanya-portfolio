@@ -29,7 +29,7 @@ function Button(props: {
   endIcon?: ReactNode;
 }) {
   return (
-    <button className="cursor-pointer flex items-center justify-center bg-gray-950 text-white text-sm px-2 py-1.5 rounded-lg">
+    <button className="cursor-pointer flex items-center justify-center bg-gray-950 dark:bg-[#2C2D31] dark:border dark:border-white/20 text-white text-sm px-2 py-1.5 rounded-lg">
       {props.startIcon}
       <span className="font-semibold">{props.title}</span>
       {props.endIcon}
@@ -40,7 +40,7 @@ function Button(props: {
 export function ProjectCard(props: IProject) {
   return (
     <div className="flex flex-col md:flex-row items-center gap-14">
-      <div className="md:max-w-sm max-w-lg flex flex-col bg-red-100/20 p-1 rounded-lg group border-2 border-gray-400/40 shadow-xl/40">
+      <div className="md:max-w-sm max-w-lg flex flex-col bg-red-100/20 dark:bg-cardBg p-1 rounded-lg group border-2 border-gray-400/40 shadow-xl/40">
         <div className="flex items-center mb-1 pl-1">
           <div className="flex gap-1">
             <div className="h-2 w-2 rounded-full bg-neutral-300 group-hover:bg-green-600 group-active:bg-green-600 transition-all duration-500"></div>
@@ -48,7 +48,7 @@ export function ProjectCard(props: IProject) {
             <div className="h-2 w-2 rounded-full bg-neutral-300 group-hover:bg-red-600 group-active:bg-red-600 transition-all duration-500"></div>
           </div>
           <div className="w-full flex justify-center">
-            <div className="text-[10px] tracking-wide border bg-neutral-300/60 border-neutral-300 px-10 rounded-sm text-neutral-700/80">
+            <div className="text-[10px] dark:text-textMain/60 tracking-wide border bg-neutral-300/60 dark:bg-cardBgLight border-neutral-300 dark:border-cardBgLight px-10 rounded-sm text-neutral-700/80">
               {props.title}
             </div>
           </div>
@@ -63,11 +63,13 @@ export function ProjectCard(props: IProject) {
 
       {/* Description */}
       <div className="ml-4 sm:ml-0">
-        <div className="font-bold text-xl mb-2">{props.title}</div>
-        <div className="text-xs mb-2 font-semibold text-neutral-700">
+        <div className="font-bold text-xl mb-2 dark:text-textMain">
+          {props.title}
+        </div>
+        <div className="text-xs mb-2 font-semibold text-neutral-700 dark:text-textMain">
           {props.data}
         </div>
-        <div className="text-xs font-semibold text-neutral-700">
+        <div className="text-xs font-semibold text-neutral-700 dark:text-textMain">
           {props.desc}
         </div>
         <div className="flex flex-wrap gap-2 mt-3 mb-3 max-w-lg">

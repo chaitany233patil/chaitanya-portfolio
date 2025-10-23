@@ -10,6 +10,94 @@ import Link from "next/link";
 import { motion, Transition } from "framer-motion";
 import React from "react";
 
+const WORDS = "Chaitanya Patil";
+
+const STACK = [
+  "/icons/next.svg",
+  "/icons/react.svg",
+  "/icons/js.svg",
+  "/icons/ts.svg",
+  "/icons/html.svg",
+  "/icons/css.svg",
+  "/icons/tailwind.svg",
+  "/icons/sql.svg",
+  "/icons/java.svg",
+  "/icons/figma.svg",
+];
+
+const REVSTACK = [
+  "/icons/prisma.svg",
+  "/icons/postgress.svg",
+  "/icons/node.svg",
+  "/icons/mongodb.svg",
+  "/icons/git.svg",
+  "/icons/vscode.svg",
+  "/icons/github.svg",
+  "/icons/express.svg",
+  "/icons/postman.svg",
+  "/icons/docker.svg",
+];
+
+const gitStat = [
+  { title: "Following", count: "12" },
+  { title: "Followers", count: "1" },
+  { title: "Stars", count: "6" },
+  { title: "Issue", count: "0" },
+  { title: "PRs", count: "14" },
+];
+
+const SOCIALS = [
+  {
+    title: "Discord",
+    logo: "/icons/discord.svg",
+    alt: "Discord",
+    href: "#",
+    rotate: "-rotate-25",
+    postion: "left-20",
+    index: "z-1",
+    color: "socialDiscord",
+  },
+  {
+    title: "Insta",
+    logo: "/icons/instagram.svg",
+    alt: "Instagram",
+    href: "https://www.instagram.com/chaitanya_233",
+    rotate: "-rotate-15",
+    postion: "left-30",
+    index: "z-2",
+    color: "socialInstagram",
+  },
+  {
+    title: "Linkedin",
+    logo: "/icons/linkedin.svg",
+    alt: "Linkedin",
+    href: "https://www.linkedin.com/in/chaitanya-patil-26ba9b257/",
+    rotate: "rotate-0",
+    index: "z-3",
+    color: "socialLinkedin",
+  },
+  {
+    title: "Twitter",
+    logo: "/icons/x.svg",
+    alt: "Twitter",
+    href: "https://x.com/PChaitanya529",
+    rotate: "rotate-15",
+    postion: "right-30",
+    index: "z-2",
+    color: "socialTwitter",
+  },
+  {
+    title: "Spotify",
+    logo: "/icons/spotify.svg",
+    alt: "Spotify",
+    href: "#",
+    rotate: "rotate-20",
+    postion: "right-20",
+    index: "z-1",
+    color: "socialSpotify",
+  },
+];
+
 export default function Home() {
   const transition: Transition<string> = {
     duration: 1,
@@ -24,89 +112,6 @@ export default function Home() {
     visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
   };
 
-  const words = "Chaitanya Patil";
-
-  const stack = [
-    "/icons/next.svg",
-    "/icons/react.svg",
-    "/icons/js.svg",
-    "/icons/ts.svg",
-    "/icons/html.svg",
-    "/icons/css.svg",
-    "/icons/tailwind.svg",
-    "/icons/sql.svg",
-    "/icons/java.svg",
-    "/icons/figma.svg",
-  ];
-
-  const revStack = [
-    "/icons/prisma.svg",
-    "/icons/postgress.svg",
-    "/icons/node.svg",
-    "/icons/mongodb.svg",
-    "/icons/git.svg",
-    "/icons/vscode.svg",
-    "/icons/github.svg",
-    "/icons/express.svg",
-    "/icons/postman.svg",
-    "/icons/docker.svg",
-  ];
-
-  const gitStat = [
-    { title: "Following", count: "12" },
-    { title: "Followers", count: "1" },
-    { title: "Stars", count: "6" },
-    { title: "Issue", count: "0" },
-    { title: "PRs", count: "14" },
-  ];
-
-  const socials = [
-    {
-      title: "Discord",
-      logo: "/icons/discord.svg",
-      alt: "Discord",
-      href: "#",
-      rotate: "-rotate-25",
-      postion: "left-20",
-      index: "z-1",
-    },
-    {
-      title: "Insta",
-      logo: "/icons/instagram.svg",
-      alt: "Instagram",
-      href: "https://www.instagram.com/chaitanya_233",
-      rotate: "-rotate-15",
-      postion: "left-30",
-      index: "z-2",
-    },
-    {
-      title: "Linkedin",
-      logo: "/icons/linkedin.svg",
-      alt: "Linkedin",
-      href: "https://www.linkedin.com/in/chaitanya-patil-26ba9b257/",
-      rotate: "rotate-0",
-      index: "z-3",
-    },
-    {
-      title: "Twitter",
-      logo: "/icons/x.svg",
-      alt: "Twitter",
-      href: "https://x.com/PChaitanya529",
-      rotate: "rotate-15",
-      postion: "right-30",
-      index: "z-2",
-    },
-    {
-      title: "Spotify",
-      logo: "/icons/spotify.svg",
-      alt: "Spotify",
-      href: "#",
-      rotate: "rotate-20",
-      postion: "right-20",
-      index: "z-1",
-    },
-  ];
-
   return (
     <section className="bg-whitemin-h-screen">
       <motion.div
@@ -117,8 +122,8 @@ export default function Home() {
       >
         <div className="flex justify-between items-center py-4">
           <div>
-            <div className="text-3xl font-semibold mb-1 text-textMain dark:text-textLight">
-              {words.split(" ").map((word, index) => (
+            <div className="text-3xl font-semibold mb-1 text-textMain dark:text-textMain">
+              {WORDS.split(" ").map((word, index) => (
                 <React.Fragment key={index}>
                   <motion.span
                     className="inline-block"
@@ -127,14 +132,14 @@ export default function Home() {
                   >
                     {word}
                   </motion.span>
-                  {index < words.length - 1 && " "}
+                  {index < WORDS.length - 1 && " "}
                 </React.Fragment>
               ))}
             </div>
             <motion.div
               transition={transition}
               variants={variants}
-              className="text-lg italic"
+              className="text-lg italic dark:text-textMain"
             >
               Full Stack Developer
             </motion.div>
@@ -174,7 +179,7 @@ export default function Home() {
           >
             I love exploring the web, refining UI/UX details, and learning how
             things work under the hood. You can find my{" "}
-            <span className="underline decoration-wavy cursor-pointer text-gray-900 dark:text-textLight">
+            <span className="underline decoration-wavy cursor-pointer text-gray-900 dark:text-textMain">
               crafts
             </span>{" "}
             here. Currently, I&apos;m diving deeper into Web3 and Improving my
@@ -212,7 +217,9 @@ export default function Home() {
           variants={variants}
           className="pb-10"
         >
-          <div className="pt-8 underline text-gray-900">Bento</div>
+          <div className="pt-8 underline dark:underline-white text-gray-900 dark:text-white">
+            Bento
+          </div>
           <div className="pt-10 grid grid-cols-5 grid-rows-5 sm:grid-rows-3 gap-2">
             {/* Playgorund */}
             <Card className="order-1 sm:order-none col-span-2 sm:col-span-1 flex items-center hover:scale-[90%] active:scale-[90%] overflow-hidden bg-gray-50 dark:bg-cardBg">
@@ -250,8 +257,8 @@ export default function Home() {
                 </div>
                 <div className="relative h-full flex items-center overflow-hidden">
                   <div className="flex flex-col gap-8">
-                    <ScrollingRow images={stack} />
-                    <ScrollingRow images={revStack} reverse />
+                    <ScrollingRow images={STACK} />
+                    <ScrollingRow images={REVSTACK} reverse />
                     {/* Left Fade */}
                     <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-gray-50 dark:from-cardBg to-transparent pointer-events-none" />
 
@@ -283,7 +290,7 @@ export default function Home() {
                       }`}
                     >
                       {title}
-                      <span className="ml-2 text-gray-900 dark:text-textLight">
+                      <span className="ml-2 text-gray-900 dark:text-accentAqua">
                         {count}
                       </span>
                     </div>
@@ -301,9 +308,9 @@ export default function Home() {
                 <div
                   className={`relative h-full w-full flex items-center justify-center hover:px-4 group-active:px-4 overflow-hidden gap-2 mt-[-8px] transition-all duration-500`}
                 >
-                  {socials.map((social, index) => (
+                  {SOCIALS.map((social, index) => (
                     <SocialCard
-                      className={`${social.index} ${social.rotate} absolute ${social.postion} group-hover:static group-active:static transition-all duration-600 group-hover:rotate-0 group-active:rotate-0 group-active:mt-0 cursor-pointer`}
+                      className={`${social.index} ${social.rotate} ${social.postion} dark:bg-gradient-to-b dark:from-dark via-neutral-100 to-yellow-400/15`}
                       key={index}
                       src={social.logo}
                       alt={social.alt}

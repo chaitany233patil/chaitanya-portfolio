@@ -8,7 +8,7 @@ export default function Work() {
         <div className="max-w-2xl mx-auto w-full px-4">
           {/* Heading */}
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold">My Work</div>
+            <div className="text-2xl font-bold dark:text-textMain">My Work</div>
             <a
               href={
                 "https://drive.google.com/file/d/16KkSWX_386nSSWOUGbSKMjaY9lhus8Jj/view?usp=sharing"
@@ -17,7 +17,13 @@ export default function Work() {
             >
               <div className="relative group">
                 <div className="absolute inset-0 bg-black transition-all duration-300 rounded-lg group-hover:rounded-none"></div>
-                <div className="relative z-10 flex items-center text-md font-semibold justify-center border-2 border-dashed px-3 py-1 rounded-lg bg-white transition-all duration-300 group-hover:-translate-x-1 group-active:-translate-x-1 group-hover:-translate-y-1 group-active:-translate-y-1 group-hover:rounded-none group-active:rounded-none">
+                <div
+                  className="
+                    relative z-10 flex items-center text-md font-semibold justify-center border-2 border-dashed border-white 
+                    px-3 py-1 rounded-lg bg-white dark:bg-dark dark:text-textMain transition-all duration-300 group-hover:-translate-x-1 
+                    group-active:-translate-x-1 group-hover:-translate-y-1 group-active:-translate-y-1 
+                    group-hover:rounded-none group-active:rounded-none"
+                >
                   View Resume
                   <Image
                     src={"/icons/right-arrow.svg"}
@@ -31,7 +37,7 @@ export default function Work() {
             </a>
           </div>
 
-          <div className="mt-8 text-neutral-600 flex items-center text-lg">
+          <div className="mt-8 text-neutral-600 flex items-center text-lg dark:text-textMain">
             Turning ideas into impact. See what I’ve built .
             <Link href={"/projects"}>
               <div className="relative overflow-hidden group mb-2">
@@ -55,43 +61,43 @@ export default function Work() {
 
           {/* Work Experience */}
           <div className="flex flex-col mt-2">
-            <div className="text-2xl pt-8 font-bold text-neutral-750">
+            <div className="text-2xl pt-8 font-bold text-neutral-750 dark:text-textMain">
               Live Leaderboard System – Converges 2025.
             </div>
             <div className="text-[15px] text-neutral-600 mt-2">
-              <div>
+              <div className="dark:text-textMain">
                 <span className="font-semibold">Role:</span> Technical Team Lead
-                @ Skill Bhavan
+                @Skill<span className="dark:text-red-400">Bhavan</span>
               </div>
-              <div>
+              <div className="dark:text-textMain">
                 <span className="font-semibold">Tech Stack:</span> React ·
                 MongoDB · Socket.io · Node.js · Typescript
               </div>
             </div>
 
-            <div className="mt-4 border-l-3 border-blue-400/50 pl-6 text-neutral-700">
+            <div className="mt-4 border-l-3 border-blue-400/50 pl-6 text-neutral-700 dark:text-textMain">
               Built a real-time leaderboard web app from scratch for SquidMaze,
               part of our college fest Converges 2025. Handled live tracking for
               30+ teams using WebSockets with smooth, real-time updates.
             </div>
 
-            <div className="mt-6 text-neutral-700 flex items-center gap-2">
+            <div className="mt-6 text-neutral-700 flex items-center gap-2 dark:text-textMain">
               <div className="h-1 w-1 rounded-full bg-black/70"></div> Developed
               and deployed a full-stack leaderboard system for SquidMaze&apos;s
               final round.
             </div>
 
-            <div className="mt-1 text-neutral-700 flex items-center gap-2">
+            <div className="mt-1 text-neutral-700 flex items-center gap-2 dark:text-textMain">
               <div className="h-1 w-1 rounded-full bg-black/70"></div> Built
               with React, TypeScript, Socket.io, Node.js, and MongoDB.
             </div>
 
-            <div className="mt-1 text-neutral-700 flex items-center gap-2">
+            <div className="mt-1 text-neutral-700 flex items-center gap-2 dark:text-textMain">
               <div className="h-1 w-1 rounded-full bg-black/70"></div> Handled
               30+ live teams with real-time score updates during Converges 2025.
             </div>
 
-            <div className="mt-5 border border-neutral-600/40 p-3">
+            <div className="mt-5 border border-neutral-600/40 p-3 dark:text-textMain">
               This project demonstrated my ability to build full-stack
               applications under constraints, lead technical efforts in
               real-time scenarios, and contribute meaningfully to team-based
@@ -107,7 +113,7 @@ export default function Work() {
                 height={20}
                 className="mt-1"
               />
-              <div>cd .&nbsp;.</div>
+              <div className="dark:text-textMain">cd .&nbsp;.</div>
             </Link>
           </div>
         </div>
